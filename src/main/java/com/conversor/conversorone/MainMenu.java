@@ -5,6 +5,10 @@
 package com.conversor.conversorone;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import java.awt.Color;
+import java.awt.Font;
+import java.util.concurrent.TimeUnit;
+import javax.swing.UIManager;
 
 /**
  *
@@ -21,7 +25,8 @@ public class MainMenu extends javax.swing.JFrame {
     }
     
     private void initStyles(){
-        
+        title.setForeground(new Color(0xDDE6ED));
+        title.setFont(new Font("Inconsolata", Font.PLAIN, 18));
     }
 
     /**
@@ -33,51 +38,107 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         background = new javax.swing.JPanel();
         titleBar = new javax.swing.JPanel();
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        title = new javax.swing.JLabel();
+        divisasBtn = new javax.swing.JButton();
+        tempBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        setSize(new java.awt.Dimension(400, 500));
 
         background.setBackground(new java.awt.Color(221, 230, 237));
 
         titleBar.setBackground(new java.awt.Color(39, 55, 77));
         titleBar.setPreferredSize(new java.awt.Dimension(400, 60));
 
+        title.setBackground(new java.awt.Color(255, 255, 255));
+        title.setFont(new java.awt.Font("Inconsolata", 0, 18)); // NOI18N
+        title.setForeground(new java.awt.Color(221, 230, 237));
+        title.setText("Conversor Alura - ONE");
+
         javax.swing.GroupLayout titleBarLayout = new javax.swing.GroupLayout(titleBar);
         titleBar.setLayout(titleBarLayout);
         titleBarLayout.setHorizontalGroup(
             titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(titleBarLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(title)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         titleBarLayout.setVerticalGroup(
             titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGroup(titleBarLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(title)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
+
+        divisasBtn.setBackground(new java.awt.Color(39, 55, 77));
+        divisasBtn.setFont(new java.awt.Font("Inconsolata", 0, 16)); // NOI18N
+        divisasBtn.setForeground(new java.awt.Color(221, 230, 237));
+        divisasBtn.setText("Divisas");
+        divisasBtn.setBorderPainted(false);
+        divisasBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        divisasBtn.setFocusable(false);
+        divisasBtn.setPreferredSize(new java.awt.Dimension(124, 60));
+        divisasBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                divisasBtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                divisasBtnMouseReleased(evt);
+            }
+        });
+        divisasBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                divisasBtnActionPerformed(evt);
+            }
+        });
+
+        tempBtn.setBackground(new java.awt.Color(39, 55, 77));
+        tempBtn.setFont(new java.awt.Font("Inconsolata", 0, 16)); // NOI18N
+        tempBtn.setForeground(new java.awt.Color(221, 230, 237));
+        tempBtn.setText("Temperatura");
+        tempBtn.setBorderPainted(false);
+        tempBtn.setFocusable(false);
+        tempBtn.setPreferredSize(new java.awt.Dimension(124, 60));
+        tempBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tempBtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tempBtnMouseReleased(evt);
+            }
+        });
+        tempBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tempBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(titleBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tempBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(divisasBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 440, Short.MAX_VALUE))
+                .addGap(114, 114, 114)
+                .addComponent(divisasBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(tempBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 165, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -95,12 +156,45 @@ public class MainMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tempBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tempBtnActionPerformed
+
+    private void divisasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divisasBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_divisasBtnActionPerformed
+
+    private void divisasBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divisasBtnMousePressed
+        // TODO add your handling code here:
+        divisasBtn.setBackground(new Color(0xDDE6ED));
+        divisasBtn.setForeground(new Color(0x27374D));
+    }//GEN-LAST:event_divisasBtnMousePressed
+
+    private void divisasBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divisasBtnMouseReleased
+        // TODO add your handling code here:
+        divisasBtn.setForeground(new Color(0xDDE6ED));
+        divisasBtn.setBackground(new Color(0x27374D));
+    }//GEN-LAST:event_divisasBtnMouseReleased
+
+    private void tempBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tempBtnMousePressed
+        // TODO add your handling code here:
+        tempBtn.setBackground(new Color(0xDDE6ED));
+        tempBtn.setForeground(new Color(0x27374D));
+    }//GEN-LAST:event_tempBtnMousePressed
+
+    private void tempBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tempBtnMouseReleased
+        // TODO add your handling code here:
+        tempBtn.setForeground(new Color(0xDDE6ED));
+        tempBtn.setBackground(new Color(0x27374D));
+    }//GEN-LAST:event_tempBtnMouseReleased
+                                 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         FlatDarkLaf.setup();
+        UIManager.put( "Button.arc", 15 );
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -112,7 +206,9 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton divisasBtn;
+    private javax.swing.JButton tempBtn;
+    private javax.swing.JLabel title;
     private javax.swing.JPanel titleBar;
     // End of variables declaration//GEN-END:variables
 }
