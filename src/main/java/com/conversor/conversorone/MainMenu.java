@@ -20,15 +20,12 @@ public class MainMenu extends javax.swing.JFrame {
      * Creates new form MainMenu
      */
     public MainMenu() {
+//        FlatDarkLaf.setup();
+//        setVisible(true);
+//        UIManager.put( "Button.arc", 20 );
         initComponents();
-        initStyles();
     }
     
-    private void initStyles(){
-        title.setForeground(new Color(0xDDE6ED));
-        title.setFont(new Font("Inconsolata", Font.PLAIN, 18));
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,17 +42,21 @@ public class MainMenu extends javax.swing.JFrame {
         tempBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(650, 750));
         setResizable(false);
-        setSize(new java.awt.Dimension(400, 500));
+        setSize(new java.awt.Dimension(650, 750));
 
         background.setBackground(new java.awt.Color(221, 230, 237));
+        background.setPreferredSize(new java.awt.Dimension(650, 750));
+        background.setRequestFocusEnabled(false);
 
         titleBar.setBackground(new java.awt.Color(39, 55, 77));
-        titleBar.setPreferredSize(new java.awt.Dimension(400, 60));
+        titleBar.setPreferredSize(new java.awt.Dimension(550, 80));
 
         title.setBackground(new java.awt.Color(255, 255, 255));
-        title.setFont(new java.awt.Font("Inconsolata", 0, 18)); // NOI18N
+        title.setFont(new java.awt.Font("Inconsolata", 0, 24)); // NOI18N
         title.setForeground(new java.awt.Color(221, 230, 237));
+        title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoAlura.png"))); // NOI18N
         title.setText("Conversor Alura - ONE");
 
         javax.swing.GroupLayout titleBarLayout = new javax.swing.GroupLayout(titleBar);
@@ -63,26 +64,31 @@ public class MainMenu extends javax.swing.JFrame {
         titleBarLayout.setHorizontalGroup(
             titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(titleBarLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(20, 20, 20)
                 .addComponent(title)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(324, Short.MAX_VALUE))
         );
         titleBarLayout.setVerticalGroup(
             titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(titleBarLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titleBarLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(title)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
 
         divisasBtn.setBackground(new java.awt.Color(39, 55, 77));
-        divisasBtn.setFont(new java.awt.Font("Inconsolata", 0, 16)); // NOI18N
+        divisasBtn.setFont(new java.awt.Font("Inconsolata", 0, 20)); // NOI18N
         divisasBtn.setForeground(new java.awt.Color(221, 230, 237));
+        divisasBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/money.png"))); // NOI18N
         divisasBtn.setText("Divisas");
         divisasBtn.setBorderPainted(false);
         divisasBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         divisasBtn.setFocusable(false);
-        divisasBtn.setPreferredSize(new java.awt.Dimension(124, 60));
+        divisasBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        divisasBtn.setIconTextGap(2);
+        divisasBtn.setPreferredSize(new java.awt.Dimension(180, 80));
+        divisasBtn.setVerifyInputWhenFocusTarget(false);
+        divisasBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         divisasBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 divisasBtnMousePressed(evt);
@@ -98,12 +104,16 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         tempBtn.setBackground(new java.awt.Color(39, 55, 77));
-        tempBtn.setFont(new java.awt.Font("Inconsolata", 0, 16)); // NOI18N
+        tempBtn.setFont(new java.awt.Font("Inconsolata", 0, 20)); // NOI18N
         tempBtn.setForeground(new java.awt.Color(221, 230, 237));
+        tempBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/temperature.png"))); // NOI18N
         tempBtn.setText("Temperatura");
         tempBtn.setBorderPainted(false);
         tempBtn.setFocusable(false);
-        tempBtn.setPreferredSize(new java.awt.Dimension(124, 60));
+        tempBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        tempBtn.setIconTextGap(2);
+        tempBtn.setPreferredSize(new java.awt.Dimension(180, 80));
+        tempBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         tempBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tempBtnMousePressed(evt);
@@ -122,34 +132,34 @@ public class MainMenu extends javax.swing.JFrame {
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(titleBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(titleBar, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
+                .addGap(235, 235, 235)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(tempBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(divisasBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114)
+                .addGap(177, 177, 177)
                 .addComponent(divisasBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(tempBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 165, Short.MAX_VALUE))
+                .addGap(0, 292, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -194,7 +204,7 @@ public class MainMenu extends javax.swing.JFrame {
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         FlatDarkLaf.setup();
-        UIManager.put( "Button.arc", 15 );
+        UIManager.put( "Button.arc", 20 );
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
