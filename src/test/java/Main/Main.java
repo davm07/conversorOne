@@ -4,7 +4,7 @@
  */
 package Main;
 
-import com.conversor.conversorone.MainMenu;
+import com.conversor.conversorGUI.MainMenu;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.EventQueue;
 

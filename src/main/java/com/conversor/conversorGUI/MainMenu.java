@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.conversor.conversorone;
+package com.conversor.conversorGUI;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.Color;
@@ -42,7 +42,6 @@ public class MainMenu extends javax.swing.JFrame {
         tempBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(650, 750));
         setResizable(false);
         setSize(new java.awt.Dimension(650, 750));
 
@@ -170,21 +169,11 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tempBtnActionPerformed
 
-    private void divisasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divisasBtnActionPerformed
+    private void tempBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tempBtnMouseReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_divisasBtnActionPerformed
-
-    private void divisasBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divisasBtnMousePressed
-        // TODO add your handling code here:
-        divisasBtn.setBackground(new Color(0xDDE6ED));
-        divisasBtn.setForeground(new Color(0x27374D));
-    }//GEN-LAST:event_divisasBtnMousePressed
-
-    private void divisasBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divisasBtnMouseReleased
-        // TODO add your handling code here:
-        divisasBtn.setForeground(new Color(0xDDE6ED));
-        divisasBtn.setBackground(new Color(0x27374D));
-    }//GEN-LAST:event_divisasBtnMouseReleased
+        tempBtn.setForeground(new Color(0xDDE6ED));
+        tempBtn.setBackground(new Color(0x27374D));
+    }//GEN-LAST:event_tempBtnMouseReleased
 
     private void tempBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tempBtnMousePressed
         // TODO add your handling code here:
@@ -192,11 +181,21 @@ public class MainMenu extends javax.swing.JFrame {
         tempBtn.setForeground(new Color(0x27374D));
     }//GEN-LAST:event_tempBtnMousePressed
 
-    private void tempBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tempBtnMouseReleased
+    private void divisasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divisasBtnActionPerformed
         // TODO add your handling code here:
-        tempBtn.setForeground(new Color(0xDDE6ED));
-        tempBtn.setBackground(new Color(0x27374D));
-    }//GEN-LAST:event_tempBtnMouseReleased
+    }//GEN-LAST:event_divisasBtnActionPerformed
+
+    private void divisasBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divisasBtnMouseReleased
+        // TODO add your handling code here:
+        divisasBtn.setForeground(new Color(0xDDE6ED));
+        divisasBtn.setBackground(new Color(0x27374D));
+    }//GEN-LAST:event_divisasBtnMouseReleased
+
+    private void divisasBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divisasBtnMousePressed
+        // TODO add your handling code here:
+        divisasBtn.setBackground(new Color(0xDDE6ED));
+        divisasBtn.setForeground(new Color(0x27374D));
+    }//GEN-LAST:event_divisasBtnMousePressed
                                  
     /**
      * @param args the command line arguments
