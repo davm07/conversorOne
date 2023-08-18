@@ -6,9 +6,6 @@ package com.conversor.conversorGUI;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.Insets;
-import java.util.concurrent.TimeUnit;
 import javax.swing.UIManager;
 
 /**
@@ -21,8 +18,17 @@ public class TemperaturaMenu extends javax.swing.JFrame {
      * Creates new form MainMenu
      */
     public TemperaturaMenu() {
+        FlatDarkLaf.setup();
+        UIManager.put( "Button.arc", 20 );
+        UIManager.put("Component.arc", 20);
+        UIManager.put("Component.disabledBorderColor", true);
+        UIManager.put("ComboBox.buttonArrowColor", new Color(0xDDE6ED));
+        UIManager.put("Component.arrowType", "triangle" );
+        UIManager.put("ComboBox.buttonBackground", new Color(0x27374D));
+        UIManager.put("ComboBox.popupBackground", new Color(0x27374D));
+        UIManager.put("ComboBox.selectionForeground", new Color(0xDDE6ED));
 //        FlatDarkLaf.setup();
-//        setVisible(true);
+        setVisible(true);
 //        UIManager.put( "Button.arc", 20 );
         initComponents();        
     }
@@ -207,7 +213,10 @@ public class TemperaturaMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void regresarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarBtnActionPerformed
-        // TODO add your handling code here:
+        if (evt.getSource() == regresarBtn){
+            this.dispose();
+            MainMenu menuPrincipal = new MainMenu();
+        }
     }//GEN-LAST:event_regresarBtnActionPerformed
 
     private void degreeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_degreeFieldActionPerformed
@@ -221,24 +230,8 @@ public class TemperaturaMenu extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        FlatDarkLaf.setup();
-        UIManager.put( "Button.arc", 20 );
-        UIManager.put("Component.arc", 20);
-        UIManager.put("Component.disabledBorderColor", true);
-        UIManager.put("ComboBox.buttonArrowColor", new Color(0xDDE6ED));
-        UIManager.put("Component.arrowType", "triangle" );
-        UIManager.put("ComboBox.buttonBackground", new Color(0x27374D));
-        UIManager.put("ComboBox.popupBackground", new Color(0x27374D));
-        UIManager.put("ComboBox.selectionForeground", new Color(0xDDE6ED));
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TemperaturaMenu().setVisible(true);
-            }
-        });
+    public static void main(String[] args) {
+        TemperaturaMenu menu = new TemperaturaMenu();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

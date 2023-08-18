@@ -5,9 +5,6 @@
 package com.conversor.conversorGUI;
 
 import com.formdev.flatlaf.FlatDarkLaf;
-import java.awt.Color;
-import java.awt.Font;
-import java.util.concurrent.TimeUnit;
 import javax.swing.UIManager;
 
 /**
@@ -20,9 +17,9 @@ public class MainMenu extends javax.swing.JFrame {
      * Creates new form MainMenu
      */
     public MainMenu() {
-//        FlatDarkLaf.setup();
-//        setVisible(true);
-//        UIManager.put( "Button.arc", 20 );
+        FlatDarkLaf.setup();
+        UIManager.put( "Button.arc", 20 );
+        setVisible(true);
         initComponents();
     }
     
@@ -88,14 +85,6 @@ public class MainMenu extends javax.swing.JFrame {
         divisasBtn.setPreferredSize(new java.awt.Dimension(180, 80));
         divisasBtn.setVerifyInputWhenFocusTarget(false);
         divisasBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        divisasBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                divisasBtnMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                divisasBtnMouseReleased(evt);
-            }
-        });
         divisasBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 divisasBtnActionPerformed(evt);
@@ -113,14 +102,6 @@ public class MainMenu extends javax.swing.JFrame {
         tempBtn.setIconTextGap(2);
         tempBtn.setPreferredSize(new java.awt.Dimension(180, 80));
         tempBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tempBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tempBtnMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                tempBtnMouseReleased(evt);
-            }
-        });
         tempBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tempBtnActionPerformed(evt);
@@ -166,36 +147,18 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tempBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempBtnActionPerformed
-        // TODO add your handling code here:
+        if(evt.getSource() == tempBtn) {
+            this.dispose();
+            TemperaturaMenu tempMenu = new TemperaturaMenu();
+        }
     }//GEN-LAST:event_tempBtnActionPerformed
 
-    private void tempBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tempBtnMouseReleased
-        // TODO add your handling code here:
-        tempBtn.setForeground(new Color(0xDDE6ED));
-        tempBtn.setBackground(new Color(0x27374D));
-    }//GEN-LAST:event_tempBtnMouseReleased
-
-    private void tempBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tempBtnMousePressed
-        // TODO add your handling code here:
-        tempBtn.setBackground(new Color(0xDDE6ED));
-        tempBtn.setForeground(new Color(0x27374D));
-    }//GEN-LAST:event_tempBtnMousePressed
-
     private void divisasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divisasBtnActionPerformed
-        // TODO add your handling code here:
+        if(evt.getSource() == divisasBtn) {
+            this.dispose();
+            DivisasMenu divisasMenu = new DivisasMenu();
+        }
     }//GEN-LAST:event_divisasBtnActionPerformed
-
-    private void divisasBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divisasBtnMouseReleased
-        // TODO add your handling code here:
-        divisasBtn.setForeground(new Color(0xDDE6ED));
-        divisasBtn.setBackground(new Color(0x27374D));
-    }//GEN-LAST:event_divisasBtnMouseReleased
-
-    private void divisasBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divisasBtnMousePressed
-        // TODO add your handling code here:
-        divisasBtn.setBackground(new Color(0xDDE6ED));
-        divisasBtn.setForeground(new Color(0x27374D));
-    }//GEN-LAST:event_divisasBtnMousePressed
                                  
     /**
      * @param args the command line arguments

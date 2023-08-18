@@ -21,9 +21,16 @@ public class DivisasMenu extends javax.swing.JFrame {
      * Creates new form MainMenu
      */
     public DivisasMenu() {
-//        FlatDarkLaf.setup();
-//        setVisible(true);
-//        UIManager.put( "Button.arc", 20 );
+        FlatDarkLaf.setup();
+        UIManager.put( "Button.arc", 20 );
+        UIManager.put("Component.arc", 20);
+        UIManager.put("Component.disabledBorderColor", true);
+        UIManager.put("ComboBox.buttonArrowColor", new Color(0xDDE6ED));
+        UIManager.put("Component.arrowType", "triangle" );
+        UIManager.put("ComboBox.buttonBackground", new Color(0x27374D));
+        UIManager.put("ComboBox.popupBackground", new Color(0x27374D));
+        UIManager.put("ComboBox.selectionForeground", new Color(0xDDE6ED));
+        setVisible(true);
         initComponents();        
     }
     
@@ -212,7 +219,10 @@ public class DivisasMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void regresarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarBtnActionPerformed
-        // TODO add your handling code here:
+        if (evt.getSource() == regresarBtn){
+            this.dispose();
+            MainMenu menuPrincipal = new MainMenu();
+        }
     }//GEN-LAST:event_regresarBtnActionPerformed
 
     private void currencyFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currencyFieldActionPerformed
@@ -226,28 +236,10 @@ public class DivisasMenu extends javax.swing.JFrame {
     private void currencyFromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currencyFromActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_currencyFromActionPerformed
-                                 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        FlatDarkLaf.setup();
-        UIManager.put( "Button.arc", 20 );
-        UIManager.put("Component.arc", 20);
-        UIManager.put("Component.disabledBorderColor", true);
-        UIManager.put("ComboBox.buttonArrowColor", new Color(0xDDE6ED));
-        UIManager.put("Component.arrowType", "triangle" );
-        UIManager.put("ComboBox.buttonBackground", new Color(0x27374D));
-        UIManager.put("ComboBox.popupBackground", new Color(0x27374D));
-        UIManager.put("ComboBox.selectionForeground", new Color(0xDDE6ED));
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DivisasMenu().setVisible(true);
-            }
-        });
+                       
+    
+    public static void main(String[] args) {
+        DivisasMenu menu = new DivisasMenu();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
