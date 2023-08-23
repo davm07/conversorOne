@@ -4,8 +4,13 @@
  */
 package com.conversor.conversorGUI;
 
+import com.conversor.modelo.Temperatura;
+import com.conversor.util.Verificador;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.Color;
+import java.util.Arrays;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 /**
@@ -27,10 +32,8 @@ public class TemperaturaMenu extends javax.swing.JFrame {
         UIManager.put("ComboBox.buttonBackground", new Color(0x27374D));
         UIManager.put("ComboBox.popupBackground", new Color(0x27374D));
         UIManager.put("ComboBox.selectionForeground", new Color(0xDDE6ED));
-//        FlatDarkLaf.setup();
         setVisible(true);
-//        UIManager.put( "Button.arc", 20 );
-        initComponents();        
+        initComponents(); 
     }
     
     /**
@@ -79,7 +82,6 @@ public class TemperaturaMenu extends javax.swing.JFrame {
         regresarBtn.setBorderPainted(false);
         regresarBtn.setFocusable(false);
         regresarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        regresarBtn.setLabel("");
         regresarBtn.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         regresarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,7 +132,7 @@ public class TemperaturaMenu extends javax.swing.JFrame {
         degreeTo.setBackground(new java.awt.Color(39, 55, 77));
         degreeTo.setFont(new java.awt.Font("Inconsolata", 0, 18)); // NOI18N
         degreeTo.setForeground(new java.awt.Color(221, 230, 237));
-        degreeTo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        degreeTo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celsius", "Fahrenheit", "Kelvin" }));
         degreeTo.setFocusable(false);
         degreeTo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +143,7 @@ public class TemperaturaMenu extends javax.swing.JFrame {
         degreeFrom.setBackground(new java.awt.Color(39, 55, 77));
         degreeFrom.setFont(new java.awt.Font("Inconsolata", 0, 18)); // NOI18N
         degreeFrom.setForeground(new java.awt.Color(221, 230, 237));
-        degreeFrom.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        degreeFrom.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celsius", "Fahrenheit", "Kelvin" }));
         degreeFrom.setFocusable(false);
 
         convertirBtn.setBackground(new java.awt.Color(39, 55, 77));
@@ -151,6 +153,11 @@ public class TemperaturaMenu extends javax.swing.JFrame {
         convertirBtn.setText("Convertir");
         convertirBtn.setBorderPainted(false);
         convertirBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        convertirBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                convertirBtnActionPerformed(evt);
+            }
+        });
 
         resultadoLbl.setFont(new java.awt.Font("Inconsolata", 0, 20)); // NOI18N
         resultadoLbl.setForeground(new java.awt.Color(39, 55, 77));
@@ -226,14 +233,23 @@ public class TemperaturaMenu extends javax.swing.JFrame {
     private void degreeToActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_degreeToActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_degreeToActionPerformed
-                                 
+
+    private void convertirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convertirBtnActionPerformed
+        Verificador ver = new Verificador();
+        if (!ver.verificarCampo(degreeField.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Valor no valido", "Error", JOptionPane.WARNING_MESSAGE);
+            degreeField.setText("");
+        } 
+    }//GEN-LAST:event_convertirBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         TemperaturaMenu menu = new TemperaturaMenu();
     }
-
+    
+    private Temperatura temperaturas;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JButton changeBtn;
