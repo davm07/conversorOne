@@ -4,12 +4,13 @@
  */
 package com.conversor.conversorGUI;
 
-import com.conversor.modelo.Temperatura;
+import com.conversor.util.TemperaturaFuncion;
 import com.conversor.util.Verificador;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.Color;
-import java.util.Arrays;
-import javax.swing.DefaultComboBoxModel;
+import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -58,6 +59,7 @@ public class TemperaturaMenu extends javax.swing.JFrame {
         resultadoLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(logo);
         setResizable(false);
         setSize(new java.awt.Dimension(650, 750));
 
@@ -110,12 +112,12 @@ public class TemperaturaMenu extends javax.swing.JFrame {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        degreesLbl.setFont(new java.awt.Font("Inconsolata", 0, 16)); // NOI18N
+        degreesLbl.setFont(new java.awt.Font("Inconsolata", 0, 18)); // NOI18N
         degreesLbl.setForeground(new java.awt.Color(39, 55, 77));
         degreesLbl.setText("Grados a convertir:");
 
         degreeField.setBackground(new java.awt.Color(221, 230, 237));
-        degreeField.setFont(new java.awt.Font("Inconsolata", 0, 26)); // NOI18N
+        degreeField.setFont(new java.awt.Font("Inconsolata", 0, 30)); // NOI18N
         degreeField.setForeground(new java.awt.Color(39, 55, 77));
         degreeField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(39, 55, 77))
         );
@@ -128,9 +130,14 @@ public class TemperaturaMenu extends javax.swing.JFrame {
         changeBtn.setBackground(new java.awt.Color(221, 230, 237));
         changeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/changeIcon.png"))); // NOI18N
         changeBtn.setBorderPainted(false);
+        changeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeBtnActionPerformed(evt);
+            }
+        });
 
         degreeTo.setBackground(new java.awt.Color(39, 55, 77));
-        degreeTo.setFont(new java.awt.Font("Inconsolata", 0, 18)); // NOI18N
+        degreeTo.setFont(new java.awt.Font("Inconsolata", 0, 20)); // NOI18N
         degreeTo.setForeground(new java.awt.Color(221, 230, 237));
         degreeTo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celsius", "Fahrenheit", "Kelvin" }));
         degreeTo.setFocusable(false);
@@ -141,13 +148,18 @@ public class TemperaturaMenu extends javax.swing.JFrame {
         });
 
         degreeFrom.setBackground(new java.awt.Color(39, 55, 77));
-        degreeFrom.setFont(new java.awt.Font("Inconsolata", 0, 18)); // NOI18N
+        degreeFrom.setFont(new java.awt.Font("Inconsolata", 0, 20)); // NOI18N
         degreeFrom.setForeground(new java.awt.Color(221, 230, 237));
         degreeFrom.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celsius", "Fahrenheit", "Kelvin" }));
         degreeFrom.setFocusable(false);
+        degreeFrom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                degreeFromActionPerformed(evt);
+            }
+        });
 
         convertirBtn.setBackground(new java.awt.Color(39, 55, 77));
-        convertirBtn.setFont(new java.awt.Font("Inconsolata", 0, 18)); // NOI18N
+        convertirBtn.setFont(new java.awt.Font("Inconsolata", 0, 20)); // NOI18N
         convertirBtn.setForeground(new java.awt.Color(221, 230, 237));
         convertirBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/arrowback1.png"))); // NOI18N
         convertirBtn.setText("Convertir");
@@ -159,10 +171,11 @@ public class TemperaturaMenu extends javax.swing.JFrame {
             }
         });
 
-        resultadoLbl.setFont(new java.awt.Font("Inconsolata", 0, 20)); // NOI18N
+        resultadoLbl.setFont(new java.awt.Font("Inconsolata", 0, 24)); // NOI18N
         resultadoLbl.setForeground(new java.awt.Color(39, 55, 77));
         resultadoLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         resultadoLbl.setText("Ingrese una cantidad a convertir");
+        resultadoLbl.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
@@ -201,7 +214,7 @@ public class TemperaturaMenu extends javax.swing.JFrame {
                 .addComponent(convertirBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(resultadoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 46, Short.MAX_VALUE))
+                .addGap(0, 43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -236,20 +249,41 @@ public class TemperaturaMenu extends javax.swing.JFrame {
 
     private void convertirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convertirBtnActionPerformed
         Verificador ver = new Verificador();
-        if (!ver.verificarCampo(degreeField.getText())){
-            JOptionPane.showMessageDialog(rootPane, "Valor no valido", "Error", JOptionPane.WARNING_MESSAGE);
+        if (!ver.verificarCampo(degreeField.getText()) || degreeField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Ingrese un valor númerico", "Error", JOptionPane.ERROR_MESSAGE);
             degreeField.setText("");
-        } 
+        } else {
+            TemperaturaFuncion funcion = new TemperaturaFuncion();
+            String valorDe = degreeFrom.getSelectedItem().toString();
+            String valorPara = degreeTo.getSelectedItem().toString();
+            double numero = funcion.convertirTemperatura(valorDe, valorPara, degreeField.getText());
+            resultadoLbl.setFont(new Font("Inconsolata", Font.BOLD, 50));
+            resultadoLbl.setText(String.format("%.3f", numero));
+            resultadoLbl.setIcon(new ImageIcon(getClass().getResource(String.format("/%s.png", valorPara))));
+        }
     }//GEN-LAST:event_convertirBtnActionPerformed
+
+    private void changeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeBtnActionPerformed
+        degreeField.setText("");
+        resultadoLbl.setFont(new Font("Inconsolata", Font.PLAIN, 24));
+        resultadoLbl.setText("Ingrese una cantidad a convertir");
+        resultadoLbl.setIcon(null);
+    }//GEN-LAST:event_changeBtnActionPerformed
+
+    private void degreeFromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_degreeFromActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_degreeFromActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TemperaturaMenu menu = new TemperaturaMenu();
+        new TemperaturaMenu();
     }
     
-    private Temperatura temperaturas;
+    
+    private ImageIcon icono = new ImageIcon(getClass().getResource("/logoAlura.png"));
+    private final Image logo = icono.getImage();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JButton changeBtn;

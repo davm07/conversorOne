@@ -5,6 +5,8 @@
 package com.conversor.conversorGUI;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 
 /**
@@ -39,6 +41,7 @@ public class MainMenu extends javax.swing.JFrame {
         tempBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(logo);
         setResizable(false);
         setSize(new java.awt.Dimension(650, 750));
 
@@ -175,7 +178,9 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    private ImageIcon icono = new ImageIcon(getClass().getResource("/logoAlura.png"));
+    private final Image logo = icono.getImage();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JButton divisasBtn;
